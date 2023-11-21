@@ -1,0 +1,24 @@
+import Movie from "./Movie";
+
+
+function Movies(props) {
+    const {movies} = props;
+
+    return (
+        <div className="movies content">
+            {movies?.length ?
+                movies.map(movie => (
+                    <Movie key={movie.imdbID} {...movie}/>
+
+                ))
+                :
+                <h4>No movies found</h4>}
+        </div>
+    )
+
+
+}
+
+
+export default Movies;
+
