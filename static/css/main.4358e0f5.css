@@ -1,0 +1,2 @@
+.content{min-height:calc(100vh - 134px)}nav{padding:0 2rem}.movies{grid-gap:1rem;display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}.movies,.search{margin:0 10%}.searchButton{background:#897ae8;color:#fff;position:absolute;right:.5rem;scale:1.2;top:.5rem}.searchButton:hover{background:#6cf3ab;color:#000}.searchButton:focus{background:#897ae8;color:#fff}.radioChooseTypeButton{margin:0 10%}
+/*# sourceMappingURL=main.4358e0f5.css.map*/
