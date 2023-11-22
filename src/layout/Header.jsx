@@ -6,7 +6,7 @@ function Header() {
                     <a href="#" className="brand-logo">Movies</a>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li>
-                            <a href="#">Movies</a>
+                            <a>Movies</a>
                         </li>
 
                     </ul>

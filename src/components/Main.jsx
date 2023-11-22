@@ -1,9 +1,7 @@
 import React from "react";
 import Movies from "./Movies";
 import Preloader from "./Preloader";
-import Footer from "../layout/Footer";
 import Search from "./Search";
-import ChooseType from "./ChooseType";
 
 
 class Main extends React.Component {
@@ -15,18 +13,23 @@ class Main extends React.Component {
 
     };
 
+    API_KEY = process.env.REACT_APP_API_KEY;
+
 
     componentDidMount() {
-        fetch("http://www.omdbapi.com/?apikey=7851dfcb&s=matrix&")
+        fetch(`http://www.omdbapi.com/?apikey=${this.API_KEY}&s=matrix&`)
             .then(response => response.json())
             .then(data => this.setState({movies: data.Search, loading: false}));
     }
 
+
     searchMovies = (str, type = "") => {
-        this.setState({loading: true});
-        fetch(`http://www.omdbapi.com/?apikey=7851dfcb&s=${str}&${type === "" ? "" : `type=${type}&`}`)
-            .then(response => response.json())
-            .then(data => this.setState({movies: data.Search, loading: false}));
+        if (str !== "") {
+            this.setState({loading: true});
+            fetch(`http://www.omdbapi.com/?apikey=7851dfcb&s=${str}&${type === "" ? "" : `type=${type}&`}`)
+                .then(response => response.json())
+                .then(data => this.setState({movies: data.Search, loading: false}));
+        }
     }
 
 
@@ -34,7 +37,7 @@ class Main extends React.Component {
         return (
             <div>
                 <Search searchMovies={this.searchMovies}/>
-                { !this.state.loading ?
+                {!this.state.loading ?
                     <div>
                         <Movies movies={this.state.movies}/>
 
